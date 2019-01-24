@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <div class="jumbotron" style="background-image:url(assets/bg.jpg)">
+        <h2 style="text-align: center" class="text-light">Registration Page</h2>
+        <form #ref="ngForm" (ngSubmit)="submit(ref.value)">
+          <div class="form-group">
+              <label class="text-light">Username</label>
+              <input type="text" name="name" class="form-control" [(ngModel)]="name" #ref1="ngModel" required >
+              <label *ngIf="ref1.touched && ref1.invalid" class="text-danger">Username is mandatory</label>
+          </div>
+          <div class="form-group">
+              <label class="text-light">Email</label>
+              <input type="text" name="mail" class="form-control" [(ngModel)]="email" #ref2="ngModel" required >
+              <label *ngIf="ref2.touched && ref2.invalid" class="text-danger">Username is mandatory</label>
+          </div>
+          <div class="form-group">
+              <label class="text-light">Enter password</label>
+              <input type="password" name="password" class="form-control"[(ngModel)]="password" #ref3="ngModel" required maxlength="8">
+              <label *ngIf="ref3.touched && ref3.errors?.required" class="text-danger">password is mandatory</label>
+          </div>
+          <div class="form-group">
+              <label class="text-light">Retype password</label>
+              <input type="password" name="password1" class="form-control"[(ngModel)]="password1" #ref4="ngModel" required maxlength="8">
+              <label *ngIf="ref4.touched && ref4.errors?.required" class="text-danger">re-enter password</label>
+          </div>
+          <div class="form-group">
+              <label class="text-light">Contact Number</label>
+              <input type="number" name="contact" class="form-control"[(ngModel)]="contact" #ref5="ngModel" required  maxlength="10">
+              <label *ngIf="ref5.touched && ref5.errors?.required" class="text-danger">contact number is mandatory</label>
+          </div>
+          <div class="form-group">
+              <label class="text-light">Date of birth</label>
+              <input type="date" name="date" class="form-control"placeholder="dd/mm/yyyy"[(ngModel)]="date" #ref6="ngModel">
+          </div>
+          <label class="text-light">Gender:</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="gender" class="form-check-input text-light" [(ngModel)]="gender" value="male">Male
+              </label>
+            </div> 
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" name="gender" class="form-check-input text-light" [(ngModel)]="gender" value="female">Female
+              </label>
+           </div>
+          <div class="text-center"><button type="submit" class="btn btn-success mx-auto text-light ">Register</button></div>
+         
+      </form>
+      </div>
+      <div class="col-sm-3"></div>
+      </div>
+    </div>
+</div>

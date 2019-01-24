@@ -1,0 +1,37 @@
+<div class="container jumbotron">
+    <div class="row">
+        <div class="d-block mx-auto">
+            <input type="text" name="searchTerm" placeholder="search here" [(ngModel)]="searchTerm">
+            <button type="button" >
+                <img src="assets/sr.jpg" width="30px" height="20px">
+            </button> 
+          </div>
+    </div>
+  
+  <div class="row">
+      
+      <div class="col-sm-12">
+        <h5 style="text-align: center;color:#186abd;font-size: 60px"><b>Purchases</b></h5>
+        <table class="table">
+          <thead class="bg-info">
+            <th>Customer-id</th>
+            <th>Customer-Name</th>
+            <th>Cuourse-id</th>
+            <th>Course-Name</th>
+            <th>Email</th>
+            <th>ContactNumber</th>
+          </thead>
+          <tr *ngFor="let i of pc|search:searchTerm">
+            <td>{{i.customerid}}</td>
+            <td>{{i.customername}}</td>
+            <td>{{i.courseid}}</td>
+            <td>{{i.coursename}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.contactnumber}}</td>
+          </tr>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+

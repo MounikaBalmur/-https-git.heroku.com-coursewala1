@@ -1,0 +1,56 @@
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top ">
+      <a class="navbar-brand" href=""><img src='assets/nav1.jpg'height="50px" width="100px"></a> 
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#n">
+            <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="n" class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class=" ml-2 nav-item">
+          <a class="nav-link"routerLink="profile">Profile</a>
+        </li>
+        <li class="active nav-item ml-2">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item ml-2">
+          <a class="nav-link" routerLink="whythis">Importance</a>
+        </li>
+        <li class="nav-item ml-2">
+          <a class="nav-link" routerLink="cart">Cart</a>
+        </li>
+        <li class="nav-item ml-2">
+          <a class="nav-link" routerLink="purchasedhistory">Purchased History</a>
+        </li>
+        <li class="nav-item dropdown ml-2">
+            <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown">Course</a>
+            <div class="dropdown-menu">
+              <table>
+                <tr *ngFor="let i of data;let in=index">
+                  <td><a class="dropdown-item">{{i.coursename}} </a></td>
+                </tr>
+              </table>
+              
+            </div>
+        </li>
+        <li class="nav-item">
+          <input type="text" name="searchTerm" placeholder="search here">
+          <button type="button" >
+              <img src="assets/sr.jpg" width="30px" height="20px">
+          </button>   
+          
+        </li>
+        <li class="nav-item ml-4">
+            <a class="nav-link"routerLink="authors" >Authors</a>
+        </li>
+        <a class="ml-2  bg-info text-dark pl-1 pr-1 nav-link" routerLink="" >logout</a>
+        
+        
+        
+        
+  
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+  </div>
+  

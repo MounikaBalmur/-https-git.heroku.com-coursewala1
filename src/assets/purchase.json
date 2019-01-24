@@ -1,0 +1,34 @@
+[
+    {
+        "customerid":101,
+        "customername":"krishna",
+        "courseid":2001,
+        "coursename":"c",
+        "email":"krishna@gmail.com",
+        "contactnumber":8665646886
+    },
+    {
+        "customerid":102,
+        "customername":"kiran",
+        "courseid":2002,
+        "coursename":"c++",
+        "email":"kiran@gmail.com",
+        "contactnumber":8665254654
+    },
+    {
+        "customerid":103,
+        "customername":"mounika",
+        "courseid":2003,
+        "coursename":"java",
+        "email":"mounika@gmail.com",
+        "contactnumber":8154646886
+    },
+    {
+        "customerid":104,
+        "customername":"vihaan",
+        "courseid":2004,
+        "coursename":"angular",
+        "email":"vihaan@gmail.com",
+        "contactnumber":4589632791
+    }
+]

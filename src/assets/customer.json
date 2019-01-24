@@ -1,0 +1,26 @@
+[
+    {
+        "customerid":101,
+        "customername":"krishna",
+        "email":"krishna@gmail.com",
+        "contactnumber":8665646886
+    },
+    {
+        "customerid":102,
+        "customername":"kiran",
+        "email":"kiran@gmail.com",
+        "contactnumber":8665254654
+    },
+    {
+        "customerid":103,
+        "customername":"mounika",
+        "email":"mounika@gmail.com",
+        "contactnumber":8154646886
+    },
+    {
+        "customerid":104,
+        "customername":"vihaan",
+        "email":"vihaan@gmail.com",
+        "contactnumber":4589632791
+    }
+]

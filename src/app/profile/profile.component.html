@@ -1,0 +1,87 @@
+<div class="container jumbotron">
+  <img src="assets/p.jpg" class="mx-auto d-block rounded-circle" width="100px" height="100px">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 pt-4">
+    <table>      
+      <tr *ngFor='let i of data'><td><b>Name:</b></td>
+        <td>{{i.name}}</td>
+      </tr>
+      <tr *ngFor='let i of data'><td><b>Email:</b></td>
+        <td>{{i.mail}}</td>
+      </tr>
+      <tr *ngFor='let i of data'><td><b>contact number:</b></td>
+        <td>{{i.contact}}</td>
+      </tr>
+      <tr *ngFor='let i of data'><td><b>Date of birth:</b></td>
+          <td>{{i.date}}</td>
+      </tr>
+      <tr *ngFor='let i of data'><td><b>Gender:</b></td>
+          <td>{{i.gender}} </td>
+      </tr><br/> 
+      <tr *ngFor='let i of data' >
+        <button type="button" class="btn btn-success float-right"data-target="#e" data-toggle="modal" (click)="edit(i)">Edit</button>
+      </tr>
+
+      <div  class="modal" id="e">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn btn-danger float-right close" data-dismiss="modal">x</button> 
+          </div>
+          <div class="modal-body">
+              <form #ref="ngForm" >
+                  <div class="form-group">
+                      <label>Firstname</label>
+                      <input type="text" name="name" class="form-control" [(ngModel)]="pdata.name" #ref1="ngModel" required >
+                      <label *ngIf="ref1.touched && ref1.invalid" class="text-danger">Username is mandatory</label>
+                  </div>
+                  <div class="form-group">
+                      <label>Email</label>
+                      <input type="text" name="mail" class="form-control" [(ngModel)]="pdata.mail" #ref2="ngModel" required >
+                      <label *ngIf="ref2.touched && ref2.invalid" class="text-danger">Username is mandatory</label>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label>Contact Number</label>
+                      <input type="number" name="contact" class="form-control"[(ngModel)]="pdata.contact" #ref5="ngModel" required minlength="10" maxlength="10" pattern="\d">
+                      <label *ngIf="ref5.touched && ref5.invalid && ref5.errors?.minlength && ref5.errors?.maxlength" class="text-danger">contact number is mandatory</label>
+                  </div>
+                  <div class="form-group">
+                      <label>Date of birth</label>
+                      <input type="date" name="date" class="form-control"placeholder="dd/mm/yyyy"[(ngModel)]="pdata.date" #ref6="ngModel">
+                  </div>
+                  <div class="form-group"><label>Gender:</label>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" name="gender" [(ngModel)]="pdata.gender" value="male" class="form-check-input">Male
+                      </label>
+                    </div> 
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input type="radio" name="gender" [(ngModel)]="pdata.gender" value="female" class="form-check-input">Female
+                      </label>
+                   </div>
+                  </div>
+                   
+                  <div class="from-group">
+                    <label>Upload your profile:</label><br/>
+                    <input type="file"name="profile" class="from-control" placeholder="choose file" >
+                    
+                  </div>
+                  <div class="text-center"><button type="submit" class="btn btn-info mx-auto" data-dismiss="modal"(click)="saveprofile(v)">save</button></div>
+                 
+            </form>
+        
+        
+
+          </div>
+        </div>
+      </div> 
+      
+    </table>
+     
+      
+    </div>
+    <div class="col-sm-3"></div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+[
+    {
+        "Sno":1,
+        "ItemNumber":2001,
+        "CourseName":"c",
+        "Cost":5000
+    },
+    {
+        "Sno":2,
+        "ItemNumber":2002,
+        "CourseName":"c++",
+        "Cost":4000
+    },
+    {
+        "Sno":3,
+        "ItemNumber":2001,
+        "CourseName":"java",
+        "Cost":10000
+    },
+    {
+        "Sno":4,
+        "ItemNumber":2001,
+        "CourseName":"angular",
+        "Cost":7000
+    }
+]
