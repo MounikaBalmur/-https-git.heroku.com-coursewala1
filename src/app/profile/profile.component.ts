@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   gender:string;
   
   data:any={};
-  pdata:any[]=[];
+  pdata:any={};
   
 
   constructor(private ps:ProfileService) { }

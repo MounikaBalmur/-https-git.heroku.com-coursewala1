@@ -33,9 +33,9 @@ export class CourseComponent  implements OnInit {
   data1:object;
   submit(v):void
     {
-      console.log(v);
-      this.course.courseData(v);
-      this.obj.push(v);
+      // console.log();
+       this.course.courseData(v);
+      // this.obj.push();
       this.coursename='';
       this.cdetailes='';
       this.authorname='';

@@ -17,7 +17,7 @@ export class CourseService {
   deletecourse(v):Observable<any>
   {
     var httpOption={
-                    headers:new HttpHeaders({'content-Type':'application/json'}),
+                    headers:new HttpHeaders({'Content-Type':'application/json'}),
                     body:v
     }
     return this.http.delete<any[]>('adminview/course',httpOption);
