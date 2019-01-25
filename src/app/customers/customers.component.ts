@@ -14,6 +14,7 @@ export class CustomersComponent implements OnInit {
    name:string;
    mail:string;
    contact:number;
+   searchTerm:string;
   
   constructor(private cs:CustomersService,private http:HttpClient) { }
 

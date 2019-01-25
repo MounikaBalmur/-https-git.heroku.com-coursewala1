@@ -14,8 +14,8 @@ export class ProfileComponent implements OnInit {
   date:number;
   gender:string;
   
-  data:any[]=[];
-  pdata:object[]=[];
+  data:any={};
+  pdata:any[]=[];
   
 
   constructor(private ps:ProfileService) { }
@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
     console.log(this.data);
     });
   }
-  saveprofile(v)
+  saveprofile()
   {
     
     this.ps.readProfile(this.pdata);

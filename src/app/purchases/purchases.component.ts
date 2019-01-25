@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
 })
 export class PurchasesComponent implements OnInit {
   pc:object[]=[];
+  searchTerm:string;
   constructor(private ds:DataService) { }
 
   ngOnInit() 
