@@ -1,4 +1,4 @@
-import { Component  } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { CourseService } from '../course.service';
 
 @Component({
@@ -6,49 +6,61 @@ import { CourseService } from '../course.service';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent   {
+export class CourseComponent  implements OnInit {
 
   constructor(private course:CourseService)
   {
 
   }
 
+  ngOnInit()
+  {
+    this.course.read().subscribe(temp=>{this.data1=temp});
+  }
+
   t:boolean=false;
   obj:object[]=[];
-  a:string;
-  b:string;
-  c:string;
-  d:string;
-  e:string;
-  f:string;
-  g:string;
-  h:string;
-  i:string;
+  coursename:string;
+  cdetailes:string;
+  authorname:string;
+  adetailes:string;
+  authorimg:any;
+  price:string;
+  uses:string;
+  samplefile:any;
+  mainfile:string;
   data:object;
-    AddData(v):void
+  data1:object;
+  submit(v):void
     {
       console.log(v);
       this.course.courseData(v);
       this.obj.push(v);
-      this.a='';
-      this.b='';
-      this.c='';
-      this.d='';
-      this.e='';
-      this.f='';
-      this.g='';
-      this.h='';
-      this.i='';
+      this.coursename='';
+      this.cdetailes='';
+      this.authorname='';
+      this.adetailes='';
+      this.authorimg='';
+      this.price='';
+      this.uses='';
+      this.samplefile='';
+      this.mainfile='';
     }
-    Delete(v):void
+    delete(v):void
       {
         console.log(v)
-        this.obj.splice(v,1);
+        this.course.deletecourse(v).subscribe(temp=>this.data1=temp);
       }
     editdata(v):void
       {
         this.t=true;
         this.data=v;
+      }
+
+      savecourse(v)
+      {
+        this.course.readdata(this.data);
+        console.log(v);
       }
 
 }

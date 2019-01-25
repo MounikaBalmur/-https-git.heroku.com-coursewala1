@@ -7,6 +7,13 @@ import { DataService } from '../data.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
+  Sno:string;
+  ItemNumber:string;
+  CourseName:string;
+  Cost:string;
+
+
+
   data:object[]=[];
   constructor(private ds:DataService) { }
 

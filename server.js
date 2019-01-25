@@ -116,8 +116,95 @@ app.get('/userview/profile',(req,res,next)=>{
 
 //post operation for course
 app.post('/adminview/course',(req,res,next)=>{
-    dbo.collection('course').insertOne(req.body),()=>{}
+    console.log(req.body);
+    dbo.collection('course').find({coursename:req.body.coursename}).toArray((err,data)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            dbo.collection('course').insertOne({coursename:req.body.coursename,
+                cdetails:req.body.cdetails,
+                authorname:req.body.authorname,
+                adetailes:req.body.adetailes,
+                authorimg:req.body.authorimg,
+                price:req.body.price,
+                uses:req.body.uses,
+                file:req.body.file,
+                mainfile:req.body.mainfile},()=>{
+                    res.json('course added successfully');
+                })
+        }
+    })
 })
+
+
+//update handler of course 
+app.put('/adminview/course',(req,res)=>{
+
+    //object received from client
+    console.log(req.body);
+
+    //converting stringid into objectid
+    var objectid=new mongoose.Types.ObjectId(req.body._id);
+
+    //updating
+    dbo.collection('course').update({_id:objectid},{$set:{coursename:req.body.coursename,
+                                                                    cdetails:req.body.cdetails,
+                                                                    authorname:req.body.authorname,
+                                                                    adetailes:req.body.adetailes,
+                                                                    authorimg:req.body.authorimg,
+                                                                    price:req.body.price,
+                                                                    uses:req.body.uses,
+                                                                    file:req.body.file,
+                                                                    mainfile:req.body.mainfile}},
+                                               (err,success)=>{
+                                                    if(err)
+                                                    {
+                                                        console.log(err);
+                                                    }
+                                                    else{
+                                                        dbo.collection('course').find({}).toArray((err,data)=>{
+                                                            if(err)
+                                                            {
+                                                                console.log(err);
+                                                            }
+                                                            else{
+                                                                res.json(data);
+                                                            }
+
+                                                        })
+                                                    }
+                                                })
+
+
+})
+
+//delete operation for course
+app.delete('adminview/course',(req,res)=>{
+    dbo.collection('course').remove({coursename:req.body.coursename},(err,success)=>{
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            dbo.collection('course').find({}).toArray((err,data)=>{
+                if(err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    res.json(data);
+                }
+            }
+            )
+        }
+    })
+})
+
 
 //get operation for customers in adminview
 app.get('/adminview/customers',(req,res,next)=>{

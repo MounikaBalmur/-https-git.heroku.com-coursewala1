@@ -12,7 +12,7 @@
           </div>
           <div class="form-group">
               <label class="text-light">Email</label>
-              <input type="text" name="mail" class="form-control" [(ngModel)]="email" #ref2="ngModel" required >
+              <input type="text" name="mail" class="form-control" [(ngModel)]="mail" #ref2="ngModel" required >
               <label *ngIf="ref2.touched && ref2.invalid" class="text-danger">Username is mandatory</label>
           </div>
           <div class="form-group">

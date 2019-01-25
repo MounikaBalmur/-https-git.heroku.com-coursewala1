@@ -1,13 +1,13 @@
 <div class="jumbotron"  style="background-image:url(assets/bg.jpg)">
     <h1 class="text-dark bg-light text-center ">Courses</h1>
-    <form #ref="ngForm" (ngSubmit)="AddData(ref.value)">
+    <form #ref="ngForm">
         <table class="mx-auto mt-5 text-dark ">
             <tr>
                 <td>
                 <label for="one" class="text-white pt-4">Course Name :</label>
                 </td>
                 <td>
-                <input type="text" id="one" name="coursename" placeholder="enter name here" class="form-control pd-5" [(ngModel)]=a>
+                <input type="text" id="one" name="coursename" placeholder="enter name here" class="form-control pd-5" [(ngModel)]="coursename">
                 </td>
             </tr>
             <tr>
@@ -15,7 +15,7 @@
                 <label for="four" class="text-white pt-4" >Courses Details : </label>
                 </td>
                 <td>
-                <textarea name ="cmnts" name="cdetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]=b></textarea>
+                <textarea  name="cdetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]="cdetailes"></textarea>
                 </td>
             </tr>
             <tr>
@@ -23,7 +23,7 @@
                 <label for="two" class="text-white pt-4" >Course Author : </label>
                 </td>
                 <td>
-                <input type="text" id="two" name="authorname" placeholder="enter name here" class="form-control pd-5" [(ngModel)]=c >
+                <input type="text" id="two" name="authorname" placeholder="enter name here" class="form-control pd-5" [(ngModel)]="authorname" >
                 </td>
             </tr>
             <tr>
@@ -31,7 +31,7 @@
                 <label for="four" class="text-white pt-4" >Author Detailes : </label>
                 </td>
                 <td>
-                <textarea name ="cmnts" name="adetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5"[(ngModel)]=d></textarea>
+                <textarea  name="adetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5"[(ngModel)]="adetailes"></textarea>
                 </td>
             </tr>
             <tr>
@@ -39,7 +39,7 @@
                 <label for="five" class="text-white pt-4" >Author Image : </label>
                 </td>
                 <td>
-                <input type="file" id="five" name="img" placeholder="place here" class="form-control pd-5"[(ngModel)]=e>
+                <input type="file" id="five" name="authorimg" placeholder="place here" class="form-control pd-5"[(ngModel)]="authorimg">
                 </td>
             </tr>
             <tr>
@@ -47,7 +47,7 @@
                 <label for="three" class="text-white pt-4" > Enter Price : </label>
                 </td>
                 <td>
-                <input type="text" id="three" name="price" placeholder="enter name here" class="form-control pd-5"[(ngModel)]=f >
+                <input type="text" id="three" name="price" placeholder="enter name here" class="form-control pd-5"[(ngModel)]="price" >
                 </td>
             </tr>
             <tr>
@@ -55,7 +55,7 @@
                 <label for="four" class="text-white pt-4" >Uses : </label>
                 </td>
                 <td>
-                <textarea name ="cmnts" name="use" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5"[(ngModel)]=g></textarea>
+                <textarea  name="uses" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5"[(ngModel)]="uses"></textarea>
                 </td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
                 <label for="five" class="text-white pt-4">Sample File : </label>
                 </td>
                 <td>
-                <input type="file" id="five" name="samplefile" placeholder="place here" class="form-control pd-5" [(ngModel)]=h>
+                <input type="file" id="five" name="samplefile" placeholder="place here" class="form-control pd-5" [(ngModel)]="samplefile">
                 </td>
             </tr>
             <tr>
@@ -71,13 +71,13 @@
                 <label for="five" class="text-white pt-4" >Main File : </label>
                 </td>
                 <td>
-                <input type="file" id="five" name="mainfile" placeholder="place here" class="form-control pd-5"[(ngModel)]=i>
+                <input type="file" id="five" name="mainfile" placeholder="place here" class="form-control pd-5"[(ngModel)]="mainfile">
                 </td>
             </tr>
             <tr>
                 <td></td>
                 <td> 
-                    <button type="submit" class="btn btn-success" >Send</button>
+                    <button type="button" class="btn btn-success" (click)="submit()" >Add</button>
                 </td>
             </tr>
         </table>
@@ -103,12 +103,12 @@
                 <td>{{i.coursename}}</td>
                 <td>{{i.authorname}}</td>
                 <td>{{i.adetailes}}</td>
-                <td>{{i.img}}</td>
+                <td>{{i.autohrimg}}</td>
                 <td>{{i.price}}</td>
-                <td>{{i.use}}</td>
-                <td>{{i.file}}</td>
+                <td>{{i.uses}}</td>
+                <td>{{i.samplefile}}</td>
                 <td>{{i.mainfile}}</td>
-                <td><button (click)="Delete(i)" class="btn btn-danger" >X</button></td>
+                <td><button (click)="delete(i)" class="btn btn-danger" >X</button></td>
                 <td><button (click)="editdata(i)" class="btn btn-primary" data-toggle="modal" data-target="#m">Edit</button></td>
             </tr>
             </table>
@@ -126,22 +126,22 @@
             <div *ngIf="t">
             <div class="jumbotron bg-secondary">
             <h3 class="text-center" style="text-decoration:underline ; color:darkmagenta;">Edit Courses</h3>
-            <form #ref2="ngForm" (ngSubmit)="editdata(y)" >
+            <form  >
                 <table class="mx-auto mt-5 text-dark ">
-                    <tr>
+                    <!-- <tr>
                         <td>
                         <label for="one" class="text-white pt-4">Course Id :</label>
                         </td>
                         <td>
                         <input type="text" id="one" name="courseid" placeholder="enter name here" class="form-control pd-5" [(ngModel)]=data.courseid>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <td>
                         <label for="four" class="text-white pt-4" >Courses Name : </label>
                         </td>
                         <td>
-                        <input type="text" name="coursename" id="four" placeholder="enter here" class="form-control pd-5" [(ngModel)]=data.coursename >
+                        <input type="text" name="coursename" id="four" placeholder="enter here" class="form-control pd-5" [(ngModel)]="data.coursename" >
                         </td>
                     </tr>
                     <tr>
@@ -149,7 +149,7 @@
                         <label for="four" class="text-white pt-4" >Courses Details : </label>
                         </td>
                         <td>
-                        <textarea name ="cmnts" name="cdetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]=b></textarea>
+                        <textarea  name="cdetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]="data.cdetailes"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -157,7 +157,7 @@
                         <label for="two" class="text-white pt-4" >Course Author : </label>
                         </td>
                         <td>
-                        <input type="text" id="two" name="authorname" placeholder="enter name here" class="form-control pd-5" [(ngModel)]=data.authorname >
+                        <input type="text" id="two" name="authorname" placeholder="enter name here" class="form-control pd-5" [(ngModel)]="data.authorname" >
                         </td>
                     </tr>
                     <tr>
@@ -165,7 +165,7 @@
                         <label for="four" class="text-white pt-4" >Author Detailes : </label>
                         </td>
                         <td>
-                        <textarea name ="cmnts" name="adetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]=data.adetailes></textarea>
+                        <textarea name="adetailes" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]="data.adetailes"></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -173,7 +173,7 @@
                         <label for="five" class="text-white pt-4" >Author Image : </label>
                         </td>
                         <td>
-                        <input type="file" id="five" name="img" placeholder="place here" class="form-control pd-5" [(ngModel)]=data.img >
+                        <input type="file" id="five" name="authorimg" placeholder="place here" class="form-control pd-5" [(ngModel)]="data.authorimg" >
                         </td>
                     </tr>
                     <tr>
@@ -181,7 +181,7 @@
                         <label for="three" class="text-white pt-4" > Enter Price : </label>
                         </td>
                         <td>
-                        <input type="text" id="three" name="price" placeholder="enter name here" class="form-control pd-5"[(ngModel)]=data.price >
+                        <input type="text" id="three" name="price" placeholder="enter name here" class="form-control pd-5"[(ngModel)]="data.price" >
                         </td>
                     </tr>
                     <tr>
@@ -189,7 +189,7 @@
                         <label for="four" class="text-white pt-4" >Uses : </label>
                         </td>
                         <td>
-                        <textarea name ="cmnts" name="use" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]=data.use></textarea>
+                        <textarea  name="uses" id="four" rows="4" cols="4" placeholder="enter here" class="form-control pd-5" [(ngModel)]="data.uses"></textarea>
                         </td>
                     </tr>                    
                     <tr>
@@ -197,7 +197,7 @@
                         <label for="five" class="text-white pt-4">Sample File : </label>
                         </td>
                         <td>
-                        <input type="file" id="five" name="file" placeholder="place here" class="form-control pd-5" [(ngModel)]=data.file>
+                        <input type="file" id="five" name="samplefile" placeholder="place here" class="form-control pd-5" [(ngModel)]="data.samplefile">
                         </td>
                     </tr>
                     <tr>
@@ -205,11 +205,11 @@
                         <label for="five" class="text-white pt-4" >Main File : </label>
                         </td>
                         <td>
-                        <input type="file" id="five" name="mainfile" placeholder="place here" class="form-control pd-5" [(ngModel)]=data.mainfile>
+                        <input type="file" id="five" name="mainfile" placeholder="place here" class="form-control pd-5" [(ngModel)]="data.mainfile">
                         </td>
                     </tr>
                     <tr>
-                        <button type="submit" class="close" data-dismiss="modal" class="btn btn-scucess">Save</button>
+                        <button type="submit" class="close" data-dismiss="modal" class="btn btn-scucess" (click)="saveCourse(v)">Save</button>
                     </tr>
                 </table>
             </form>

@@ -11,7 +11,9 @@ import { CustomersService } from '../customers.service';
 })
 export class CustomersComponent implements OnInit {
   cu:any[]=[];
-   
+   name:string;
+   mail:string;
+   contact:number;
   
   constructor(private cs:CustomersService,private http:HttpClient) { }
 
